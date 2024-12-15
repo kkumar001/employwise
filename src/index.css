@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: "Nunito Sans", sans-serif;
+  scroll-behavior: smooth !important;
+}
+
+.loader {
+  width: 90px;
+  height: 14px;
+  --c:#fff 92%,#0000;
+  background: 
+    radial-gradient(circle 7px at bottom,var(--c)) 0 0,
+    radial-gradient(circle 7px at top   ,var(--c)) 0 100%;
+  background-size: calc(100%/4) 50%;
+  background-repeat: repeat-x;
+  animation: l11 1s infinite;
+}
+@keyframes l11 {
+    80%,100% {background-position: calc(100%/3) 0,calc(100%/-3) 100%}
+}
+
+.loaderUser {
+  width: 50px;
+  --b: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #8A32A8;
+  -webkit-mask:
+    repeating-conic-gradient(#0000 0deg,#000 1deg 70deg,#0000 71deg 90deg),
+    radial-gradient(farthest-side,#0000 calc(100% - var(--b) - 1px),#000 calc(100% - var(--b)));
+  -webkit-mask-composite: destination-in;
+          mask-composite: intersect;
+  animation: l5 1s infinite;
+}
+@keyframes l5 {to{transform: rotate(.5turn)}}
